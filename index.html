@@ -69,14 +69,10 @@
       font-size: 2rem;
       margin-bottom: 15px;
     }
-    .about-circle-bg,
-    .sustainability-circle-bg,
-    .commitment-circle-bg {
-      animation: floatUpDown 8s cubic-bezier(.64,0,.78,1) infinite alternate;
-      will-change: transform;
-    }
     .about-circle-bg {
       top: 240px; left: 280px; width: 480px; height: 480px;
+      animation: floatUpDown 8s cubic-bezier(.32,0,.39,0.5) infinite alternate; /* <<< EDIT THIS FOR SPEED */
+      will-change: transform;
     }
     .sustainability-circle-bg {
       top: 2000px;
@@ -103,7 +99,7 @@
     }
     @keyframes floatUpDown {
       0% { transform: translate3d(0,0,0); }
-      100% { transform: translate3d(0,-12px,0); }
+      100% { transform: translate3d(0,-12px,0); } /* <<< EDIT THIS FOR DISTANCE */
     }
 
     footer {
