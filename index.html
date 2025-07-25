@@ -35,6 +35,7 @@
     }
     nav a {
       margin: 0 15px; text-decoration: none !important; color: #2c3e50 !important; font-weight: 500;
+      cursor: pointer;
     }
 
     .about-section {
@@ -48,7 +49,7 @@
     /* ======== CIRCLE STYLES FOR ALL 3 SECTIONS ======== */
     .circle-bg {
       position: absolute;
-      background: #222;
+      background: #bbb; /* <-- grey */
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -68,12 +69,14 @@
       font-size: 2rem;
       margin-bottom: 15px;
     }
-    /* INDIVIDUAL CIRCLE POSITIONS/SIZES (EDIT AS YOU WISH) */
+    .about-circle-bg,
+    .sustainability-circle-bg,
+    .commitment-circle-bg {
+      animation: floatUpDown 8s cubic-bezier(.32,0,.39,0.5) infinite alternate;
+      will-change: transform;
+    }
     .about-circle-bg {
       top: 240px; left: 280px; width: 480px; height: 480px;
-      animation: floatUpDown 4s cubic-bezier(.64,0,.78,1) infinite alternate;
-      will-change: transform;
-      /* The above helps keep the movement smooth & text sharp! */
     }
     .sustainability-circle-bg {
       top: 2000px;
@@ -98,11 +101,9 @@
       .commitment-circle-bg { top: 600px!important; }
       .sustainability-circle-bg { top: 1300px!important; }
     }
-
-    /* Smoother, GPU-accelerated animation */
     @keyframes floatUpDown {
       0% { transform: translate3d(0,0,0); }
-      100% { transform: translate3d(0,-28px,0); }
+      100% { transform: translate3d(0,-12px,0); }
     }
 
     footer {
@@ -122,28 +123,28 @@
   </div>
 </div>
 <nav>
-  <a href="#" onclick="showPage('about')">About</a>
-  <a href="#" onclick="showPage('services')">Services</a>
-  <a href="#" onclick="showPage('gallery')">Gallery</a>
-  <a href="#" onclick="showPage('contact')">Contact</a>
+  <a onclick="showPage('about')">About</a>
+  <a onclick="showPage('services')">Services</a>
+  <a onclick="showPage('gallery')">Gallery</a>
+  <a onclick="showPage('contact')">Contact</a>
 </nav>
 
-<div class="about-section" id="about">
-  <!-- ========== Dark Circle Around About Us ========== -->
+<div class="about-section page" id="about">
+  <!-- ========== Grey Circle Around About Us ========== -->
   <div class="circle-bg about-circle-bg">
     <div class="circle-inner">
       <h2>About Us</h2>
       <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
     </div>
   </div>
-  <!-- ========== Dark Circle Around Sustainability ========== -->
+  <!-- ========== Grey Circle Around Sustainability ========== -->
   <div class="circle-bg sustainability-circle-bg">
     <div class="circle-inner">
       <h3>Sustainability</h3>
       <p>Our mission at VerdaVita is rooted in sustainability—creating green environments that benefit both people and the planet. Every project is designed with long-term ecological health and resource efficiency in mind.</p>
     </div>
   </div>
-  <!-- ========== Dark Circle Around Commitment ========== -->
+  <!-- ========== Grey Circle Around Commitment ========== -->
   <div class="circle-bg commitment-circle-bg">
     <div class="circle-inner">
       <h3>Our Commitment to Greener Spaces</h3>
@@ -183,7 +184,19 @@
     © 2025 VerdaVita. All rights reserved.
 </footer>
 <script>
-    // intersection observer and nav functions unchanged...
+  function showPage(page) {
+    // Hide all sections
+    document.querySelectorAll('.page').forEach(function(sec) {
+      sec.style.display = 'none';
+    });
+    // Show the requested section
+    var target = document.getElementById(page);
+    if(target) {
+      target.style.display = '';
+      // Scroll to the section smoothly
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 </script>
 </body>
 </html>
