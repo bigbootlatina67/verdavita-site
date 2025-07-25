@@ -71,18 +71,21 @@
     }
     .about-circle-bg {
       top: 240px; left: 280px; width: 480px; height: 480px;
-      animation: floatUpDown 8s cubic-bezier(.32,0,.39,0.5) infinite alternate; /* <<< EDIT THIS FOR SPEED */
+      animation: floatUpDown 8s cubic-bezier(.32,0,.39,0.5) infinite alternate;
       will-change: transform;
     }
     .sustainability-circle-bg {
       top: 2000px;
-      left: 50%;
+      left: 800px;
       width: 420px;
       height: 420px;
-      transform: translateX(-50%);
+      animation: floatUpDown 8s cubic-bezier(.32,0,.39,0.5) infinite alternate;
+      will-change: transform;
     }
     .commitment-circle-bg {
       top: 900px; left: 1450px; width: 420px; height: 420px;
+      animation: floatUpDown 8s cubic-bezier(.32,0,.39,0.5) infinite alternate;
+      will-change: transform;
     }
     @media (max-width: 900px) {
       .about-circle-bg,
