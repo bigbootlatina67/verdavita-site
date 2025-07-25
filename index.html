@@ -39,43 +39,71 @@
 
     .about-section {
       width: 100%; 
-      min-height: 3000px; /* <--- Adjust this for scrollable area length */
+      min-height: 3000px;
       padding: 120px 10% 60px 10%;
       background: #fff;
-      position: relative; /* <--- KEY: Allows absolute positioning inside */
-    }
-    .about-box {
-      width: fit-content; margin-left: 350px;
-    }
-    .about-box h2 {
-      color: #27ae60; font-size: 2rem; margin-bottom: 15px;
+      position: relative;
     }
 
-    /* HIGHLIGHT START: Sustainability block position (edit top/left here) */
-    .sustainability-box {
+    /* ======== CIRCLE STYLES FOR ALL 3 SECTIONS ======== */
+    .circle-bg {
       position: absolute;
-      top: 2000px;     /* <--- VERTICAL (up/down): adjust this to move block up/down */
-      left: 1165px;    /* <--- HORIZONTAL (left/right): adjust this to move block left/right */
-      width: fit-content;
+      background: #222;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+      z-index: 2;
+      color: #fff;
+      text-align: center;
     }
-    .sustainability-box h3 {
-      color: #27ae60;
+    .circle-bg .circle-inner {
+      width: 84%;
+      margin: 0 auto;
+      background: transparent;
+    }
+    .circle-bg h2, .circle-bg h3 {
+      color: #59d186;
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
-    /* HIGHLIGHT END */
+    /* INDIVIDUAL CIRCLE POSITIONS/SIZES (EDIT AS YOU WISH) */
+    .about-circle-bg {
+      top: 240px; left: 280px; width: 480px; height: 480px;
+      animation: floatUpDown 4s cubic-bezier(.64,0,.78,1) infinite alternate;
+      will-change: transform;
+      /* The above helps keep the movement smooth & text sharp! */
+    }
+    .sustainability-circle-bg {
+      top: 2000px;
+      left: 50%;
+      width: 420px;
+      height: 420px;
+      transform: translateX(-50%);
+    }
+    .commitment-circle-bg {
+      top: 900px; left: 1450px; width: 420px; height: 420px;
+    }
+    @media (max-width: 900px) {
+      .about-circle-bg,
+      .sustainability-circle-bg,
+      .commitment-circle-bg {
+        left: 50%!important;
+        width: 90vw!important; height: 90vw!important;
+        min-width: 220px; min-height: 220px;
+        transform: translateX(-50%);
+      }
+      .about-circle-bg { top: 100px!important; }
+      .commitment-circle-bg { top: 600px!important; }
+      .sustainability-circle-bg { top: 1300px!important; }
+    }
 
-    /* HIGHLIGHT START: Commitment block position (edit top/left here) */
-    .commitment-box {
-      position: absolute;
-      top: 1000px;      /* <--- VERTICAL (up/down): adjust this to move block up/down */
-      left: 1450px;     /* <--- HORIZONTAL (left/right): adjust this to move block left/right */
-      width: fit-content;
+    /* Smoother, GPU-accelerated animation */
+    @keyframes floatUpDown {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(0,-28px,0); }
     }
-    .commitment-box h3 {
-      color: #27ae60; font-size: 2rem; margin-bottom: 20px;
-    }
-    /* HIGHLIGHT END */
 
     footer {
       text-align: center; padding: 20px; background: #f4f4f4; font-size: 0.9rem;
@@ -101,25 +129,27 @@
 </nav>
 
 <div class="about-section" id="about">
-  <div class="about-box">
-    <h2>About Us</h2>
-    <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+  <!-- ========== Dark Circle Around About Us ========== -->
+  <div class="circle-bg about-circle-bg">
+    <div class="circle-inner">
+      <h2>About Us</h2>
+      <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+    </div>
   </div>
-
-  <!-- HIGHLIGHT START: Sustainability box (move this as needed) -->
-  <div class="sustainability-box">
-    <h3>Sustainability</h3>
-    <p>Our mission at VerdaVita is rooted in sustainability—creating green environments that benefit both people and the planet. Every project is designed with long-term ecological health and resource efficiency in mind.</p>
+  <!-- ========== Dark Circle Around Sustainability ========== -->
+  <div class="circle-bg sustainability-circle-bg">
+    <div class="circle-inner">
+      <h3>Sustainability</h3>
+      <p>Our mission at VerdaVita is rooted in sustainability—creating green environments that benefit both people and the planet. Every project is designed with long-term ecological health and resource efficiency in mind.</p>
+    </div>
   </div>
-  <!-- HIGHLIGHT END -->
-
-  <!-- HIGHLIGHT START: Commitment box (move this as needed) -->
-  <div class="commitment-box">
-    <h3>Our Commitment to Greener Spaces</h3>
-    <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+  <!-- ========== Dark Circle Around Commitment ========== -->
+  <div class="circle-bg commitment-circle-bg">
+    <div class="circle-inner">
+      <h3>Our Commitment to Greener Spaces</h3>
+      <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+    </div>
   </div>
-  <!-- HIGHLIGHT END -->
-
 </div>
 
 <section class="section reverse page" id="services" style="display:none">
