@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VerdaVita - Green Living Walls</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #fff; overflow-x: hidden; }
+    .hero {
+      height: 60vh;
+      background: url('https://i.imgur.com/oTHEm7S.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease-in;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4); z-index: 0;
+    }
+    .hero > div { position: relative; z-index: 1; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    .hero p { font-size: 1rem; max-width: 600px; }
+
+    nav {
+      background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 10px 20px; position: sticky; top: 0; z-index: 1000;
+      display: flex; justify-content: center;
+    }
+    nav a {
+      margin: 0 15px; text-decoration: none !important; color: #2c3e50 !important; font-weight: 500;
+    }
+
+    .about-section {
+      width: 100%; 
+      min-height: 3000px; /* <--- Adjust this for scrollable area length */
+      padding: 120px 10% 60px 10%;
+      background: #fff;
+      position: relative; /* <--- KEY: Allows absolute positioning inside */
+    }
+    .about-box {
+      width: fit-content; margin-left: 350px;
+    }
+    .about-box h2 {
+      color: #27ae60; font-size: 2rem; margin-bottom: 15px;
+    }
+
+    /* HIGHLIGHT START: Sustainability block position (edit top/left here) */
+    .sustainability-box {
+      position: absolute;
+      top: 2000px;     /* <--- VERTICAL (up/down): adjust this to move block up/down */
+      left: 1165px;    /* <--- HORIZONTAL (left/right): adjust this to move block left/right */
+      width: fit-content;
+    }
+    .sustainability-box h3 {
+      color: #27ae60;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    /* HIGHLIGHT END */
+
+    /* HIGHLIGHT START: Commitment block position (edit top/left here) */
+    .commitment-box {
+      position: absolute;
+      top: 1000px;      /* <--- VERTICAL (up/down): adjust this to move block up/down */
+      left: 1450px;     /* <--- HORIZONTAL (left/right): adjust this to move block left/right */
+      width: fit-content;
+    }
+    .commitment-box h3 {
+      color: #27ae60; font-size: 2rem; margin-bottom: 20px;
+    }
+    /* HIGHLIGHT END */
+
+    footer {
+      text-align: center; padding: 20px; background: #f4f4f4; font-size: 0.9rem;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div>
+    <h1>VerdaVita</h1>
+    <p>Designing Green Life Into Every Space with Seamless Innovation and Sustainable Impact</p>
+  </div>
+</div>
+<nav>
+  <a href="#" onclick="showPage('about')">About</a>
+  <a href="#" onclick="showPage('services')">Services</a>
+  <a href="#" onclick="showPage('gallery')">Gallery</a>
+  <a href="#" onclick="showPage('contact')">Contact</a>
+</nav>
+
+<div class="about-section" id="about">
+  <div class="about-box">
+    <h2>About Us</h2>
+    <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+  </div>
+
+  <!-- HIGHLIGHT START: Sustainability box (move this as needed) -->
+  <div class="sustainability-box">
+    <h3>Sustainability</h3>
+    <p>Our mission at VerdaVita is rooted in sustainability—creating green environments that benefit both people and the planet. Every project is designed with long-term ecological health and resource efficiency in mind.</p>
+  </div>
+  <!-- HIGHLIGHT END -->
+
+  <!-- HIGHLIGHT START: Commitment box (move this as needed) -->
+  <div class="commitment-box">
+    <h3>Our Commitment to Greener Spaces</h3>
+    <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+  </div>
+  <!-- HIGHLIGHT END -->
+
+</div>
+
+<section class="section reverse page" id="services" style="display:none">
+  <div class="text">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Custom Live Wall Design &amp; Installation</li>
+      <li>Automated Irrigation System Integration</li>
+      <li>Live Wall Maintenance &amp; Upkeep</li>
+      <li>Eco-friendly Consulting for Workspaces &amp; Lobbies</li>
+    </ul>
+  </div>
+  <div class="image"></div>
+</section>
+<section class="section page" id="gallery" style="display:none">
+  <div class="text">
+    <h2>Gallery</h2>
+    <p>Coming soon — examples of our work and green transformations. Stay tuned!</p>
+  </div>
+  <div class="image"></div>
+</section>
+<section class="section reverse page" id="contact" style="display:none">
+  <div class="text">
+    <h2>Contact Us</h2>
+    <p>Ready to transform your space? Reach out and let's bring green life into your environment.</p>
+    <p>Email: <a href="mailto:info@verdavita.ca">info@verdavita.ca</a></p>
+  </div>
+  <div class="image"></div>
+</section>
+<footer>
+    © 2025 VerdaVita. All rights reserved.
+</footer>
+<script>
+    // intersection observer and nav functions unchanged...
+</script>
+</body>
+</html>
