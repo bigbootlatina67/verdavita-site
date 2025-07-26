@@ -46,10 +46,9 @@
       position: relative;
     }
 
-    /* ======== CIRCLE STYLES FOR ALL 3 SECTIONS ======== */
     .circle-bg {
       position: absolute;
-      background: #bbb; /* <-- grey */
+      background: #bbb;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -71,19 +70,39 @@
     }
     .about-circle-bg {
       top: 240px; left: 280px; width: 480px; height: 480px;
-      animation: floatUpDown 8s cubic-bezier(.32,0,.39,0.5) infinite alternate; /* <<< EDIT THIS FOR SPEED */
-      will-change: transform;
+      animation: floatUpDown 5.2s cubic-bezier(.32,0,.39,0.5) infinite alternate;
     }
     .sustainability-circle-bg {
-      top: 2000px;
-      left: 50%;
-      width: 420px;
-      height: 420px;
-      transform: translateX(-50%);
+      top: 2070px; left: 1066px; width: 420px; height: 420px;
+      animation: floatUpDown 5.7s cubic-bezier(.32,0,.39,0.5) infinite alternate;
     }
     .commitment-circle-bg {
-      top: 900px; left: 1450px; width: 420px; height: 420px;
+      top: 1200px; left: 1550px; width: 550px; height: 550px;
+      animation: floatUpDown 5s cubic-bezier(.32,0,.39,0.5) infinite alternate;
     }
+
+    .about-highlight-box {
+      position: absolute;
+      top: 300px; left: 1165px;
+      width: 800px; height: 420px;
+      background: rgba(99, 186, 255, 0.16);
+      border-radius: 18px;
+      z-index: 3;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      pointer-events: none;
+    }
+
+    .commitment-highlight-box {
+      position: absolute;
+      top: 1200px; left: 303px;
+      width: 800px; height: 420px;
+      background: rgba(99, 186, 255, 0.16);
+      border-radius: 18px;
+      z-index: 3;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      pointer-events: none;
+    }
+
     @media (max-width: 900px) {
       .about-circle-bg,
       .sustainability-circle-bg,
@@ -96,10 +115,17 @@
       .about-circle-bg { top: 100px!important; }
       .commitment-circle-bg { top: 600px!important; }
       .sustainability-circle-bg { top: 1300px!important; }
+      .about-highlight-box {
+        top: 70vw !important;
+        left: 50vw !important;
+        width: 60vw !important;
+        height: 30vw !important;
+        transform: translateX(-50%);
+      }
     }
     @keyframes floatUpDown {
       0% { transform: translate3d(0,0,0); }
-      100% { transform: translate3d(0,-12px,0); } /* <<< EDIT THIS FOR DISTANCE */
+      100% { transform: translate3d(0,-12px,0); }
     }
 
     footer {
@@ -126,70 +152,78 @@
 </nav>
 
 <div class="about-section page" id="about">
-  <!-- ========== Grey Circle Around About Us ========== -->
   <div class="circle-bg about-circle-bg">
     <div class="circle-inner">
       <h2>About Us</h2>
-      <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+      <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations...</p>
     </div>
   </div>
-  <!-- ========== Grey Circle Around Sustainability ========== -->
+
+  <img 
+    src="https://i.imgur.com/J83ktbU.jpeg"
+    alt="Decorative Plant"
+    style="position: absolute; top: 317px; left: 1245.7px; width: 650px; height: 380px; z-index: 4; border-radius: 20px; box-shadow: 0 4px 32px rgba(0,0,0,0.14);"
+  />
+  <div class="about-highlight-box"></div>
+
   <div class="circle-bg sustainability-circle-bg">
     <div class="circle-inner">
       <h3>Sustainability</h3>
-      <p>Our mission at VerdaVita is rooted in sustainability—creating green environments that benefit both people and the planet. Every project is designed with long-term ecological health and resource efficiency in mind.</p>
+      <p>Our mission at VerdaVita is rooted in sustainability—creating green environments...</p>
     </div>
   </div>
-  <!-- ========== Grey Circle Around Commitment ========== -->
+
   <div class="circle-bg commitment-circle-bg">
     <div class="circle-inner">
       <h3>Our Commitment to Greener Spaces</h3>
-      <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations. We bring lush, sustainable vertical gardens into indoor and outdoor spaces, blending nature with architecture.</p>
+      <p>VerdaVita is a passionate team of green space designers who specialize in live wall installations...</p>
     </div>
   </div>
+  <div class="commitment-highlight-box"></div>
+  <img 
+    src="https://i.imgur.com/a3yPouh.jpeg"
+    alt="Commitment Decorative"
+    style="position: absolute; top: 1221px; left: 376.5px; width: 650px; height: 380px; z-index: 4; border-radius: 20px; box-shadow: 0 4px 32px rgba(0,0,0,0.14);"
+  />
 </div>
 
 <section class="section reverse page" id="services" style="display:none">
   <div class="text">
     <h2>Our Services</h2>
     <ul>
-      <li>Custom Live Wall Design &amp; Installation</li>
+      <li>Custom Live Wall Design & Installation</li>
       <li>Automated Irrigation System Integration</li>
-      <li>Live Wall Maintenance &amp; Upkeep</li>
-      <li>Eco-friendly Consulting for Workspaces &amp; Lobbies</li>
+      <li>Live Wall Maintenance & Upkeep</li>
+      <li>Eco-friendly Consulting for Workspaces & Lobbies</li>
     </ul>
   </div>
-  <div class="image"></div>
 </section>
+
 <section class="section page" id="gallery" style="display:none">
   <div class="text">
     <h2>Gallery</h2>
     <p>Coming soon — examples of our work and green transformations. Stay tuned!</p>
   </div>
-  <div class="image"></div>
 </section>
+
 <section class="section reverse page" id="contact" style="display:none">
   <div class="text">
     <h2>Contact Us</h2>
     <p>Ready to transform your space? Reach out and let's bring green life into your environment.</p>
     <p>Email: <a href="mailto:info@verdavita.ca">info@verdavita.ca</a></p>
   </div>
-  <div class="image"></div>
 </section>
+
 <footer>
-    © 2025 VerdaVita. All rights reserved.
+  © 2025 VerdaVita. All rights reserved.
 </footer>
+
 <script>
   function showPage(page) {
-    // Hide all sections
-    document.querySelectorAll('.page').forEach(function(sec) {
-      sec.style.display = 'none';
-    });
-    // Show the requested section
-    var target = document.getElementById(page);
-    if(target) {
+    document.querySelectorAll('.page').forEach(sec => sec.style.display = 'none');
+    const target = document.getElementById(page);
+    if (target) {
       target.style.display = '';
-      // Scroll to the section smoothly
       target.scrollIntoView({ behavior: "smooth" });
     }
   }
